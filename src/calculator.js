@@ -23,10 +23,12 @@ class Calculator extends React.Component{
   }
 
   setNum1(e) {
+    e.preventDefault();
     this.setState({num1: e.target.value});
   }
 
   setNum2(e) {
+    e.preventDefault();
     this.setState({num2: e.target.value});
   }
 
@@ -68,6 +70,7 @@ class Calculator extends React.Component{
   }
 
   resetState(e){
+    e.preventDefault();
     this.setState({ 
       num1: '',
       num2: '',
