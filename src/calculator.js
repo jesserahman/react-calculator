@@ -13,24 +13,12 @@ class Calculator extends React.Component{
       operation : '',
       operator_clicked: false
     }
-    this.setNum1 = this.setNum1.bind(this);
-    this.setNum2 = this.setNum2.bind(this);
     this.addNumbers = this.addNumbers.bind(this);
     this.subtractNumbers = this.subtractNumbers.bind(this);
     this.multiplyNumbers = this.multiplyNumbers.bind(this);
     this.divideNumbers = this.divideNumbers.bind(this);
     this.resetState = this.resetState.bind(this);
     this.getResult = this.getResult.bind(this);
-  }
-
-  setNum1(e) {
-    e.preventDefault();
-    this.setState({num1: e.target.value});
-  }
-
-  setNum2(e) {
-    e.preventDefault();
-    this.setState({num2: e.target.value});
   }
 
   addNumbers(e){
@@ -61,13 +49,13 @@ class Calculator extends React.Component{
   addToNumber = (value) => (e) => {
     e.preventDefault();
     this.state.operator_clicked ? 
-      this.setState({ num2: this.state.num2 + value }) : 
-        this.setState({ num1: this.state.num1 + value})
+      this.setState({ num2: this.state.num2 + value, result: this.state.num2 + value }) : 
+        this.setState({ num1: this.state.num1 + value, result: this.state.num1 + value})
   }
 
   handleOperation = (op) => (e) => {
     e.preventDefault(); 
-    this.setState({ operation: op, operator_clicked: true })
+    this.setState({ operation: op, operator_clicked: true });
   }
 
   resetState(e){
@@ -106,9 +94,7 @@ class Calculator extends React.Component{
   render(){
     return (
       <div className="calculator">
-        <h1 className="result"> {this.state.result}</h1>
-        <input value={this.state.num1} onChange={this.setNum1} /> 
-        <input value={this.state.num2} onChange={this.setNum2}/> 
+        <h1 className="result"> {this.state.result} </h1>
         <br />
 
         <button className={classNames('btn', 'top_btn')} onClick={this.resetState}> A/C </button>
