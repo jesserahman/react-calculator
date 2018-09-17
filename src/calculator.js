@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import classNames from 'classnames';
 
 class Calculator extends React.Component{
   constructor(props){
@@ -100,7 +101,6 @@ class Calculator extends React.Component{
     }
   }
 
-  // How to give elements multiple classes?
   // How to determine what is displayed based on state? 
   // Ex: H1 displays result, but would like to display num values when there is no result
   render(){
@@ -111,33 +111,33 @@ class Calculator extends React.Component{
         <input value={this.state.num2} onChange={this.setNum2}/> 
         <br />
 
-        <button className="top_btn" onClick={this.resetState}> A/C </button>
-        <button className="top_btn" > +/- </button>
-        <button className="top_btn" > % </button>
-        <button className="op_btn" onClick={this.handleOperation('div')}> / </button>
+        <button className={classNames('btn', 'top_btn')} onClick={this.resetState}> A/C </button>
+        <button className={classNames('btn', 'top_btn')} > +/- </button>
+        <button className={classNames('btn', 'top_btn')} > % </button>
+        <button className={classNames('btn', 'op_btn')} onClick={this.handleOperation('div')}> / </button>
         <br />
 
-        <button className="btn" onClick={this.addToNumber(7)}> 7 </button>
-        <button className="btn" onClick={this.addToNumber(8)}> 8 </button>
-        <button className="btn" onClick={this.addToNumber(9)}> 9 </button>
-        <button className="op_btn" onClick={this.handleOperation('mul')}> x </button>
+        <button className={classNames('btn', 'dark_btn')} onClick={this.addToNumber(7)}> 7 </button>
+        <button className={classNames('btn', 'dark_btn')} onClick={this.addToNumber(8)}> 8 </button>
+        <button className={classNames('btn', 'dark_btn')} onClick={this.addToNumber(9)}> 9 </button>
+        <button className={classNames('btn', 'op_btn')} onClick={this.handleOperation('mul')}> x </button>
         <br />
 
-        <button className="btn" onClick={this.addToNumber(4)}> 4 </button>
-        <button className="btn" onClick={this.addToNumber(5)}> 5 </button>
-        <button className="btn" onClick={this.addToNumber(6)}> 6 </button>
-        <button className="op_btn" onClick={this.handleOperation('sub')}> - </button>
+        <button className={classNames('btn', 'dark_btn')} onClick={this.addToNumber(4)}> 4 </button>
+        <button className={classNames('btn', 'dark_btn')} onClick={this.addToNumber(5)}> 5 </button>
+        <button className={classNames('btn', 'dark_btn')} onClick={this.addToNumber(6)}> 6 </button>
+        <button className={classNames('btn', 'op_btn')} onClick={this.handleOperation('sub')}> - </button>
         <br />
 
-        <button className="btn" onClick={this.addToNumber(1)}> 1 </button>
-        <button className="btn" onClick={this.addToNumber(2)}> 2 </button>
-        <button className="btn" onClick={this.addToNumber(3)}> 3 </button>
-        <button className="op_btn" onClick={this.handleOperation('add')}> + </button>
+        <button className={classNames('btn', 'dark_btn')} onClick={this.addToNumber(1)}> 1 </button>
+        <button className={classNames('btn', 'dark_btn')} onClick={this.addToNumber(2)}> 2 </button>
+        <button className={classNames('btn', 'dark_btn')} onClick={this.addToNumber(3)}> 3 </button>
+        <button className={classNames('btn', 'op_btn')} onClick={this.handleOperation('add')}> + </button>
         <br />
 
-        <button className="btn" id="zero" onClick={this.addToNumber(0)} > 0 </button>
-        <button className="btn" > . </button>
-        <button className="op_btn" onClick={this.getResult}> = </button>
+        <button className={classNames('btn', 'dark_btn')} id="zero" onClick={this.addToNumber(0)} > 0 </button>
+        <button className={classNames('btn', 'dark_btn')} > . </button>
+        <button className={classNames('btn', 'op_btn')} onClick={this.getResult}> = </button>
       </div>
     );
   }
