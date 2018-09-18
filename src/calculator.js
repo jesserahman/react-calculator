@@ -26,24 +26,28 @@ class Calculator extends React.Component{
     e.preventDefault();
     const new_result = parseInt(this.state.num1) + parseInt(this.state.num2);
     this.setState({ result: new_result })
+    return new_result;
   }
 
   subtractNumbers(e) {
     e.preventDefault();
     const new_result = parseInt(this.state.num1) - parseInt(this.state.num2);
     this.setState({ result: new_result })
+    return new_result;
   }
 
   multiplyNumbers(e) {
     e.preventDefault();
     const new_result = parseInt(this.state.num1) * parseInt(this.state.num2);
     this.setState({ result: new_result })
+    return new_result;
   }
 
   divideNumbers(e) {
     e.preventDefault();
     const new_result = parseInt(this.state.num1) / parseInt(this.state.num2);
     this.setState({ result: new_result })
+    return new_result;
   }
 
   addToNumber = (value) => (e) => {
@@ -73,20 +77,22 @@ class Calculator extends React.Component{
   getResult(e) {
     e.preventDefault();
     console.log(this.state.operation);
+    var op_result;
     switch (this.state.operation) {
       case 'add':
-        this.addNumbers(e);
+        op_result = this.addNumbers(e);
         break;
       case 'sub':
-        this.subtractNumbers(e);
+        op_result = this.subtractNumbers(e);
         break;
       case 'mul':
-        this.multiplyNumbers(e);
+        op_result = this.multiplyNumbers(e);
         break;
       case 'div':
-        this.divideNumbers(e);
+        op_result = this.divideNumbers(e);
         break;
     }
+    this.setState({ num1: op_result, num2: '', operator_clicked: false });
   }
 
   // How to determine what is displayed based on state? 
